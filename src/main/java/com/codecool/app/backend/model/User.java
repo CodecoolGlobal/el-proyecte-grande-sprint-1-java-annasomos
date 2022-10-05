@@ -3,7 +3,7 @@ package com.codecool.app.backend.model;
 import java.util.UUID;
 
 public class User {
-    private final UUID id;
+    private UUID id;
     private String name;
     private String email;
 
@@ -12,7 +12,9 @@ public class User {
         this.name = name;
         this.email = email;
     }
-
+    public User(){
+        this.id = UUID.randomUUID();
+    }
     public String getName() {
         return name;
     }
@@ -27,5 +29,9 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public UUID getId() {
+        return id;
     }
 }

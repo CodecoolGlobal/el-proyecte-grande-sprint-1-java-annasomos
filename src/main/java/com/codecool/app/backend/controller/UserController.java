@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
+import java.util.UUID;
 
 @RestController
 public class UserController {
@@ -28,6 +29,11 @@ public class UserController {
     @PostMapping(value = "users/new")
     public void addUser(@RequestBody User user) {
         userStorage.addUser(user);
+    }
+
+    @PutMapping(value="update/{id}")
+    public void updateUser(@PathVariable UUID id, @RequestBody User user){
+        userStorage.updateUser(id, user);
     }
 
 
