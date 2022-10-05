@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component
@@ -31,14 +32,19 @@ public class UserStorage {
         throw new RuntimeException();
     }
 
-    public void updateName(String newName, String email) {
-        User user = getUserByEmail(email);
-        user.setName(newName);
+    private User getUserById(UUID id){
+        for(User user: users){
+            if(user.getId().equals(id)){
+                return user;
+            }
+        }
+        throw new RuntimeException("User not found");
     }
 
-    public void updateEmail(String oldEmail, String newEmail) {
-        User user = getUserByEmail(oldEmail);
-        user.setEmail(newEmail);
+    public void updateUser(UUID id, User updatedUser) {
+        User user = getUserById(id);
+        user.setEmail(updatedUser.getEmail());
+        user.setName(updatedUser.getName());
     }
 
     public void addUser(User user) {
