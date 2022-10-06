@@ -35,4 +35,5 @@ public class Pub {
     public void setMenu(Map<String, BigDecimal> menu) {
         this.menu = menu;
     }
+
 }
