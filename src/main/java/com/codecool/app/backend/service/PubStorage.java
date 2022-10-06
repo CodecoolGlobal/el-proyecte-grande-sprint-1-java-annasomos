@@ -44,7 +44,7 @@ public class PubStorage {
     //might get redundant
     public Pub getPubByName(String name){
         for (Pub pub : pubs) {
-            if (pub.getName().equals(name)){
+            if (pub.getName().toLowerCase().equals(name.toLowerCase())){
                 return pub;
             }
         }
