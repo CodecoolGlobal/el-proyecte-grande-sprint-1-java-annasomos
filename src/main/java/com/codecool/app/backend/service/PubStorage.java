@@ -11,9 +11,9 @@ import java.util.UUID;
 @Component
 public class PubStorage {
 
-    private Set<Pub> pubs;
+    private final Set<Pub> pubs;
 
-    public PubStorage(Set<Pub> pubs) {
+    public PubStorage() {
         this.pubs = new HashSet<>();
     }
 
@@ -51,4 +51,8 @@ public class PubStorage {
         throw new RuntimeException("Pub not found");
     }
 
+    public void deletePub(UUID id) {
+        Pub pub = getPubById(id);
+        pubs.remove(pub);
+    }
 }

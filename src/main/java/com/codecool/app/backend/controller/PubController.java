@@ -14,7 +14,7 @@ import java.util.UUID;
 @RestController
 public class PubController {
 
-    public PubStorage pubStorage;
+    private final PubStorage pubStorage;
 
     @Autowired
     public PubController(PubStorage pubStorage) {
@@ -40,6 +40,11 @@ public class PubController {
     @GetMapping("pub/{name}")
     public Pub getPubByName(@PathVariable String name) {
         return pubStorage.getPubByName(name);
+    }
+
+    @DeleteMapping(value = "pubs/delete/{id}")
+    public void deletePub(@PathVariable UUID id) {
+        pubStorage.deletePub(id);
     }
 
 }
