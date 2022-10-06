@@ -51,7 +51,14 @@ public class UserStorage {
         users.add(user);
     }
 
+    public void deleteUser(UUID id) {
+        User user = getUserById(id);
+        users.remove(user);
+    }
+
     public Set<User> getUsers() {
         return users;
     }
+
+
 }
