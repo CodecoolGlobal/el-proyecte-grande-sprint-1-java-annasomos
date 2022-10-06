@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -36,9 +37,9 @@ public class PubController {
     }
 
     //might get redundant
-    @PutMapping("pub/{name}")
-    public void getPubByName(@PathVariable String name) {
-        pubStorage.getPubByName(name);
+    @GetMapping("pub/{name}")
+    public Pub getPubByName(@PathVariable String name) {
+        return pubStorage.getPubByName(name);
     }
 
 }

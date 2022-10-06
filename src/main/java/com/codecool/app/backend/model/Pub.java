@@ -16,6 +16,10 @@ public class Pub {
         this.menu = menu;
     }
 
+    public Pub(){
+        this.id = UUID.randomUUID();
+    }
+
     public UUID getId() {
         return id;
     }
