@@ -31,7 +31,7 @@ public class UserController {
         userStorage.addUser(user);
     }
 
-    @PutMapping(value="update/{id}")
+    @PutMapping(value="updateuser/{id}")
     public void updateUser(@PathVariable UUID id, @RequestBody User user){
         userStorage.updateUser(id, user);
     }
