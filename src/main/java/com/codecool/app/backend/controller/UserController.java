@@ -12,7 +12,7 @@ import java.util.UUID;
 public class UserController {
 
 
-    public UserStorage userStorage;
+    private final UserStorage userStorage;
 
     @Autowired
     public UserController(UserStorage userStorage) {
@@ -36,6 +36,10 @@ public class UserController {
         userStorage.updateUser(id, user);
     }
 
+    @DeleteMapping(value = "delete/{id}")
+    public void deleteUser(@PathVariable UUID id) {
+        userStorage.deleteUser(id);
+    }
 
 
 
