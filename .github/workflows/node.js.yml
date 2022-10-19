@@ -8,9 +8,7 @@ on:
     branches: [ "development" ]
   pull_request:
     branches: [ "development" ]
-defaults:
-  run:
-    working-directory: src/main/java/com/codecool/app/frontend/mytreat
+
 jobs:
   build:
 
@@ -27,6 +25,10 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-       
+        cache: 'npm'
+        cache-dependency-path: './src/main/java/com/codecool/app/frontend/mytreat'
+        
+    - run: npm ci
+      working-directory: './src/main/java/com/codecool/app/frontend/mytreat'
     - run: npm run build --if-present
-  
+      working-directory: './src/main/java/com/codecool/app/frontend/mytreat'

@@ -1,9 +1,10 @@
-import './App.css';
-import LogIn from './LogIn';
-import Registration from './Registration';
-import AddFriend from './AddFriend';
+import "./App.css";
+import Home from "./Home";
+import LogIn from "./LogIn";
+import Registration from "./Registration";
+import AddFriend from "./AddFriend";
+import { Routes, Route } from "react-router-dom";
 import Pubs from './Pubs';
-import {Routes, Route, useNavigate} from 'react-router-dom';
 
 function App() {
   return (
