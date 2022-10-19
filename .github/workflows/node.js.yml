@@ -27,7 +27,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: "./src/main/java/com/codecool/app/frontend/mytreat/package-lock.json"
-    - name : Npm Build
-      working-directory: ./src/main/java/com/codecool/app/frontend/mytreat
+        working-directory: ./src/main/java/com/codecool/app/frontend/mytreat
     - run: npm run build --if-present
   
