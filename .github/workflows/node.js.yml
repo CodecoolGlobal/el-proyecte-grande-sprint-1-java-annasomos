@@ -29,5 +29,5 @@ jobs:
         cache-dependency-path: "./src/main/java/com/codecool/app/frontend/mytreat/package-lock.json"
        
     - run: npm run build --if-present
-      working-directory: src/main/java/com/codecool/app/frontend/mytreat/
+      working-directory: ../src/main/java/com/codecool/app/frontend/mytreat/
   
