@@ -1,11 +1,9 @@
 import "./App.css";
 import Home from "./Home";
-import Header from "./Header";
-import Layout from "./Layout";
 import LogIn from "./LogIn";
 import Registration from "./Registration";
 import AddFriend from "./AddFriend";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
