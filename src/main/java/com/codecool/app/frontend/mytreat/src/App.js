@@ -1,5 +1,7 @@
 import './App.css';
 import LogIn from './LogIn';
+import Registration from './Registration';
+import AddFriend from './AddFriend';
 import {Routes, Route, useNavigate} from 'react-router-dom';
 
 function App() {
@@ -13,8 +15,8 @@ function App() {
           <Route path='/pubs' element={<Pubs/>}/>
           <Route path='/pubs/:pubId' element={<Pub/>}/> */}
           <Route path='/login' element={<LogIn/>}/>
-          {/* <Route path='/registration' element={<Registration/>}/>
-          <Route path='/add-friend' element={<AddFriend/>}/> */}
+          <Route path='/registration' element={<Registration/>}/>
+          <Route path='/add-friend' element={<AddFriend/>}/>
       </Routes>
     </div>
   );
