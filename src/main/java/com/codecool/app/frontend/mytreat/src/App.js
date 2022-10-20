@@ -5,6 +5,7 @@ import LogIn from './LogIn';
 import Registration from './Registration';
 import AddFriend from './AddFriend';
 import UserList from "./UserList";
+import Layout from "./Layout";
 import {useState} from 'react';
 import {Routes, Route} from 'react-router-dom';
 
@@ -28,17 +29,17 @@ function App() {
     }
   ]);
 
-  setUsers(users);
-
   return (
     <div className="App">
         <Routes>
+          <Route element={<Layout/>}>
           <Route index element={<Home/>}/>
           <Route path='/my-friends' element={<UserList users={users}/>}/>
           <Route path='/users/:userId' element={<User users={users}/>}/>
           {/*
           <Route path='/pubs' element={<Pubs/>}/>
           <Route path='/pubs/:pubId' element={<Pub/>}/> */}
+          </Route>
         <Route path="/login" element={<LogIn />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/add-friend" element={<AddFriend />} />

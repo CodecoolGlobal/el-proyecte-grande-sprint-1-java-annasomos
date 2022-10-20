@@ -5,17 +5,17 @@ const Nav = () => {
   return (
       <ul>
         <div className="stretchBox"/>
-        <Link to="#myfriends">
+        <Link to="my-friends">
           <li>
             <a>MyFriends</a>
           </li>
         </Link>
-        <Link to="#pubs">
+        <Link to="/pubs">
           <li>
             <a>MyPubs</a>
           </li>
         </Link>
-        <Link to="#mytreats">
+        <Link to="/mytreats">
           <li>
             <a>MyTreats</a>
           </li>
