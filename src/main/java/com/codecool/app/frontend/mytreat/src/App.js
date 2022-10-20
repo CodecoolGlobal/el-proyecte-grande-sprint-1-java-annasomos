@@ -5,7 +5,7 @@ import LogIn from "./LogIn";
 import Registration from "./Registration";
 import AddFriend from "./AddFriend";
 import { Routes, Route } from "react-router-dom";
-import Pubs from './Pubs';
+import Pubs from './Pub';
 
 function App() {
   return (
