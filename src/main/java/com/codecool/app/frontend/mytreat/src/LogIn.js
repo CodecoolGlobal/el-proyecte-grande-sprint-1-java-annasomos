@@ -32,7 +32,7 @@ const LogIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     users.map((user) => {
-      if (user.email == email && user.password == password) {
+      if (user.email === email && user.password === password) {
         setEmail("");
         setPassword("");
         localStorage.setItem("currentUser", JSON.stringify(user));
