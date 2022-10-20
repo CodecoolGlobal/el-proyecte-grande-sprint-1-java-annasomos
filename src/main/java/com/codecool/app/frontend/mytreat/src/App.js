@@ -1,14 +1,12 @@
 import "./App.css";
 import Home from "./Home";
-import Header from "./Header";
-import Layout from "./Layout";
 import User from "./User";
 import LogIn from './LogIn';
 import Registration from './Registration';
 import AddFriend from './AddFriend';
 import UserList from "./UserList";
-import {useState, useEffect} from 'react';
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import {useState} from 'react';
+import {Routes, Route} from 'react-router-dom';
 
 function App() {
 
