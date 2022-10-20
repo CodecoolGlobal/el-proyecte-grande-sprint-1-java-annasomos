@@ -6,6 +6,7 @@ import api from './api/api';
 
 const User = () => {
   const [users, setUsers] = useState([]);
+  const { userId } = useParams();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -25,8 +26,8 @@ const User = () => {
 
     fetchUsers();
   }, []);
-
-  const { userId } = useParams();
+  if(users.length === 0) return "LOADING"
+  
   const user = users.find(user => user.id.toString() === userId);
   return (
     <div>

@@ -4,6 +4,7 @@ import api from "./api/api";
 
 const Pub = () => {
   const [pubs, setPubs] = useState([]);
+  const { pubId } = useParams();
 
   useEffect(() => {
     const fetchPubs = async () => {
@@ -24,7 +25,8 @@ const Pub = () => {
     fetchPubs();
   }, []);
 
-  const { pubId } = useParams();
+  if(pubs.length===0) return "LOADING"
+  
   const pub = pubs.find((pub) => pub.id.toString() === pubId);
   return (
     <div>
