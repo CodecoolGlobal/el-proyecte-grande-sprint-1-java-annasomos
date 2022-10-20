@@ -28,7 +28,7 @@ const PubList = () => {
   return (
     <div>
       {pubs.map((pub) => (
-        <div>
+        <div key={pub.id}>
           <Link to={`/pubs/${pub.id}`}>
             {pub.name} {pub.openHours} {pub.rating} {pub.address}
           </Link>

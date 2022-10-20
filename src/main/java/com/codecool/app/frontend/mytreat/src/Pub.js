@@ -24,7 +24,9 @@ const Pub = () => {
 
     fetchPubs();
   }, []);
+
   if(pubs.length===0) return "LOADING"
+  
   const pub = pubs.find((pub) => pub.id.toString() === pubId);
   return (
     <div>

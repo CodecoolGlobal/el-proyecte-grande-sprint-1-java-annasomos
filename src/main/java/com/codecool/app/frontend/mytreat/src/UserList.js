@@ -29,8 +29,8 @@ const UserList = () => {
   return (
     <div>
       {users.map(user =>
-      <div>
-        <Link to={`/users/${user.id}`} key={user.id}>{user.name} ({user.email})</Link>
+      <div key={user.id}>
+        <Link to={`/users/${user.id}`}>{user.name} ({user.email})</Link>
       </div>
       )}
     </div>
