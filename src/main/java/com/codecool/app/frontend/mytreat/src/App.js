@@ -28,6 +28,8 @@ function App() {
     }
   ]);
 
+  setUsers(users);
+
   return (
     <div className="App">
         <Routes>
