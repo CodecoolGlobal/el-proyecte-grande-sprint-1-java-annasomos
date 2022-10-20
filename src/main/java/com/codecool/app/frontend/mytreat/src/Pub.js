@@ -30,7 +30,7 @@ const Pub = () => {
   const pub = pubs.find((pub) => pub.id.toString() === pubId);
   return (
     <div>
-      <p>{pub.name}</p>
+      <h2>{pub.name}</h2>
       <p>{pub.openHours}</p>
       <p>{pub.address}</p>
       <p>{pub.rating}</p>

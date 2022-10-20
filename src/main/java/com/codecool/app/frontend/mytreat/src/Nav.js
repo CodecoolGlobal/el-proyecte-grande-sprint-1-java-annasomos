@@ -7,17 +7,17 @@ const Nav = () => {
         <div className="stretchBox"/>
         <Link to="my-friends">
           <li>
-            <a>MyFriends</a>
+            <label>MyFriends</label>
           </li>
         </Link>
         <Link to="/pubs">
           <li>
-            <a>MyPubs</a>
+            <label>MyPubs</label>
           </li>
         </Link>
         <Link to="/mytreats">
           <li>
-            <a>MyTreats</a>
+            <label>MyTreats</label>
           </li>
         </Link>
         <div className="stretchBox"/>
