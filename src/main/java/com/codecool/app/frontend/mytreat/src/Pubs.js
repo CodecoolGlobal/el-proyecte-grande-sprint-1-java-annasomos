@@ -3,7 +3,7 @@ import List from './List';
 
 const pubs = () => {
   const PUBS_API_URL = '/pubsapi';
-  const [requestType, setRequestType] = React.useState('pubs');
+  // const [requestType, setRequestType] = React.useState('pubs');
   const [pubs, setPubs] = useState({});
 
   useEffect(async () => {
@@ -17,24 +17,24 @@ const pubs = () => {
       }
     };
   });
+  // const apiRequestPubList = async (
+  //   url = '',
+  //   opsionsObj = null,
+  //   errorMessage = null
+  // ) => {
+  //   try {
+  //     const response = await fetch(url, opsionsObj);
+  //     if (!response.ok) throw Error('Please reload the app');
+  //   } catch (err) {
+  //     errorMessage = err.message;
+  //   } finally {
+  //     return errorMessage;
+  //   }
+  // };
   return (
     <List Listdata={JSON.stringify(pubs)}/>
   );
 };
 
-const apiRequestPubList = async (
-  url = '',
-  opsionsObj = null,
-  errorMessage = null
-) => {
-  try {
-    const response = await fetch(url, opsionsObj);
-    if (!response.ok) throw Error('Please reload the app');
-  } catch (err) {
-    errorMessage = err.message;
-  } finally {
-    return errorMessage;
-  }
-};
 
 export default pubs;

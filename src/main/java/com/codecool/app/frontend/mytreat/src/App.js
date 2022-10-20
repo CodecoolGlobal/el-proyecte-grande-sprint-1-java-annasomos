@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import Home from "./Home";
 import LogIn from "./LogIn";
@@ -15,7 +16,7 @@ function App() {
           <Route path='/friends' element={<Users/>}/>
           <Route path='/user/:userId' element={<User/>}/>
         <Route path='/pubs/:pubId' element={<Pub/>}/> */}
-        <Route path="/pubs" element={<Pubs url= {path}/>} />
+        <Route path="/pubs" element={<Pubs/>} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/add-friend" element={<AddFriend />} />
