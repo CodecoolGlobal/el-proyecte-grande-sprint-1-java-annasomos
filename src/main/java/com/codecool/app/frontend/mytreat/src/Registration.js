@@ -46,6 +46,7 @@ const Registration = () => {
       setName("");
       setEmail("");
       setPassword("");
+      localStorage.setItem("currentUser", JSON.stringify(response.data));
       navigate("/");
     } catch (err) {
       console.log(`Error: ${err.message}`);

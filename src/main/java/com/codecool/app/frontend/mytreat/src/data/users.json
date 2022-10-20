@@ -17,6 +17,36 @@
       "name": "Anna Somos",
       "email": "somos.anna@meraki.hu",
       "password": "jelszo"
+    },
+    {
+      "id": 4,
+      "name": "test",
+      "email": "test@test.com",
+      "password": "123"
+    },
+    {
+      "id": 5,
+      "name": "pityu",
+      "email": "pity@test.com",
+      "password": "123"
+    },
+    {
+      "id": 6,
+      "name": "Istvan",
+      "email": "isti@test.com",
+      "password": "89"
+    },
+    {
+      "id": 7,
+      "name": "newuser",
+      "email": "new@tets.com",
+      "password": "123"
+    },
+    {
+      "id": 8,
+      "name": "asd",
+      "email": "asd@test.com",
+      "password": "123"
     }
   ]
 }
