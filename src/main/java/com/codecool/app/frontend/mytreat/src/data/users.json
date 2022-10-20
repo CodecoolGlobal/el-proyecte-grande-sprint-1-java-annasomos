@@ -11,6 +11,12 @@
       "name": "Becy",
       "email": "becy@citromail.hu",
       "password": "456"
+    },
+    {
+      "id": 3,
+      "name": "Anna Somos",
+      "email": "somos.anna@meraki.hu",
+      "password": "jelszo"
     }
   ]
 }
