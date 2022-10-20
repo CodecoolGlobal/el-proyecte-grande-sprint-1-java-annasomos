@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import api from "./api/api";
 
-const Pub = () => {
+const PubList = () => {
   const [pubs, setPubs] = useState([]);
 
   useEffect(() => {
@@ -24,16 +25,17 @@ const Pub = () => {
     fetchPubs();
   }, []);
 
-  const { pubId } = useParams();
-  const pub = pubs.find((pub) => pub.id.toString() === pubId);
   return (
     <div>
-      <p>{pub.name}</p>
-      <p>{pub.openHours}</p>
-      <p>{pub.address}</p>
-      <p>{pub.rating}</p>
+      {pubs.map((pub) => (
+        <div>
+          <Link to={`/pubs/${pub.id}`}>
+            {pub.name} {pub.openHours} {pub.rating} {pub.address}
+          </Link>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default Pub;
+export default PubList;
