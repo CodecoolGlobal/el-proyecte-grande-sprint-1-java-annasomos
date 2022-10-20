@@ -3,17 +3,25 @@ import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <nav>
-      <Link to="#myfriends">
-        <p>MyFriends</p>
-      </Link>
-      <Link to="#pubs">
-        <p>MyPubs</p>
-      </Link>
-      <Link to="#mytreats">
-        <p>MyTreats</p>
-      </Link>
-    </nav>
+      <ul>
+        <div className="stretchBox"/>
+        <Link to="#myfriends">
+          <li>
+            <a>MyFriends</a>
+          </li>
+        </Link>
+        <Link to="#pubs">
+          <li>
+            <a>MyPubs</a>
+          </li>
+        </Link>
+        <Link to="#mytreats">
+          <li>
+            <a>MyTreats</a>
+          </li>
+        </Link>
+        <div className="stretchBox"/>
+      </ul>
   );
 };
 

@@ -1,7 +1,5 @@
 import "./App.css";
 import Home from "./Home";
-import Header from "./Header";
-import Layout from "./Layout";
 import LogIn from './LogIn';
 import Registration from './Registration';
 import AddFriend from './AddFriend';
