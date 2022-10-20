@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Misi",
+      "email": "misi@hotmail.hu",
+      "password": "123"
+    },
+    {
+      "id": 2,
+      "name": "Becy",
+      "email": "becy@citromail.hu",
+      "password": "456"
+    },
+    {
+      "id": 3,
+      "name": "Anna Somos",
+      "email": "somos.anna@meraki.hu",
+      "password": "jelszo"
+    }
+  ],
+    "pubs": [
+      {
+        "id": 1,
+        "openHours": "13:00-20:00",
+        "name": "Mos Eisley Cantina",
+        "open": false,
+        "address": "Tatooine"
+      },
+      {
+        "id": 2,
+        "openHours": "16:00-00:00",
+        "name": "Moe's Tavern",
+        "open": false,
+        "address": "Springfield, Walnut Street"
+      },
+      {
+        "id": 3,
+        "openHours": "08:00-20:00",
+        "name": "Central Perk",
+        "open": true,
+        "address": "New York, 199 Lafayette St."
+      }
+    ]
+}
+

@@ -11,6 +11,7 @@ const UserList = () => {
       try {
         const response = await api.get("/users");
         setUsers(response.data);
+        console.log(response)
       } catch (err) {
         if (err.response) {
           console.log(err.response.data);
@@ -27,10 +28,11 @@ const UserList = () => {
 
   return (
     <div>
-      {users.map(user => 
-      <div>
+      {users.map(user =>
+      <div key={user.id}>
         <Link to={`/users/${user.id}`}>{user.name} ({user.email})</Link>
-      </div>)}
+      </div>
+      )}
     </div>
   )
 }
