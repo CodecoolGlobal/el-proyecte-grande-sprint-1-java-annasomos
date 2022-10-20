@@ -5,37 +5,16 @@ import LogIn from './LogIn';
 import Registration from './Registration';
 import AddFriend from './AddFriend';
 import UserList from "./UserList";
-import {useState} from 'react';
 import {Routes, Route} from 'react-router-dom';
 
 function App() {
-
-  const [users, setUsers] = useState([
-    {
-      id: 1,
-      name: "Anna",
-      email: "annasomoss@gmail.com"
-    },
-    {
-      id: 2,
-      name: "AnnaPanna",
-      email: "annasomoss@gmail.com"
-    },
-    {
-      id: 3,
-      name: "AnnaPannaKiralylany",
-      email: "annasomoss@gmail.com"
-    }
-  ]);
-
-  setUsers(users);
 
   return (
     <div className="App">
         <Routes>
           <Route index element={<Home/>}/>
-          <Route path='/my-friends' element={<UserList users={users}/>}/>
-          <Route path='/users/:userId' element={<User users={users}/>}/>
+          <Route path='/my-friends' element={<UserList />}/>
+          <Route path='/users/:userId' element={<User />}/>
           {/*
           <Route path='/pubs' element={<Pubs/>}/>
           <Route path='/pubs/:pubId' element={<Pub/>}/> */}
