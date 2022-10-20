@@ -1,22 +1,25 @@
 import React from "react";
 import "./App.css";
 import Home from "./Home";
-import LogIn from "./LogIn";
-import Registration from "./Registration";
-import AddFriend from "./AddFriend";
-import { Routes, Route } from "react-router-dom";
-import Pubs from './Pub';
+import User from "./User";
+import LogIn from './LogIn';
+import Registration from './Registration';
+import AddFriend from './AddFriend';
+import UserList from "./UserList";
+import {Routes, Route} from 'react-router-dom';
+import Pub from "./Pub";
+import PubList from "./PubList";
 
 function App() {
+
   return (
     <div className="App">
-      <Routes>
-        {/* <Route path='/' element={<Layout/>}>
+        <Routes>
           <Route index element={<Home/>}/>
-          <Route path='/friends' element={<Users/>}/>
-          <Route path='/user/:userId' element={<User/>}/>
-        <Route path='/pubs/:pubId' element={<Pub/>}/> */}
-        <Route path="/pubs" element={<Pubs/>} />
+          <Route path='/my-friends' element={<UserList />}/>
+          <Route path='/users/:userId' element={<User />}/>
+          <Route path='/pubs' element={<Pubs/>}/>
+          <Route path='/pubs/:pubId' element={<Pub/>}/>
         <Route path="/login" element={<LogIn />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/add-friend" element={<AddFriend />} />
