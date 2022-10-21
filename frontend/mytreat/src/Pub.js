@@ -7,9 +7,10 @@ const Pub = () => {
   const { pubId } = useParams();
 
   useEffect(() => {
+    const controller = new AbortController();
     const fetchPubs = async () => {
       try {
-        const response = await api.get("/pubs");
+        const response = await api.get("/pubs", {signal: controller.signal});
         const pubs = response.data;
         const thisPub = pubs.find((pub) => pub.id.toString() === pubId);
         setPub(thisPub);
@@ -23,8 +24,12 @@ const Pub = () => {
         }
       }
     };
+    const cleanUp = () => {
+      controller.abort();
+    };
 
     fetchPubs();
+    return cleanUp;
   }, [pubId]);
 
   if(pub === undefined) return "LOADING"
