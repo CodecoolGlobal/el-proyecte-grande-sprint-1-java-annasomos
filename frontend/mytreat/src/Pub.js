@@ -3,14 +3,16 @@ import { useParams } from "react-router-dom";
 import api from "./api/api";
 
 const Pub = () => {
-  const [pubs, setPubs] = useState([]);
+  const [pub, setPub] = useState(undefined);
   const { pubId } = useParams();
 
   useEffect(() => {
     const fetchPubs = async () => {
       try {
         const response = await api.get("/pubs");
-        setPubs(response.data);
+        const pubs = response.data;
+        const thisPub = pubs.find((pub) => pub.id.toString() === pubId);
+        setPub(thisPub);
       } catch (err) {
         if (err.response) {
           console.log(err.response.data);
@@ -23,11 +25,10 @@ const Pub = () => {
     };
 
     fetchPubs();
-  }, []);
+  }, [pubId]);
 
-  if(pubs.length===0) return "LOADING"
-  
-  const pub = pubs.find((pub) => pub.id.toString() === pubId);
+  if(pub === undefined) return "LOADING"
+
   return (
     <div>
       <h2>{pub.name}</h2>
