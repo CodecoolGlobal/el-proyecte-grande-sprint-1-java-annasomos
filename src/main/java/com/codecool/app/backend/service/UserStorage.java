@@ -1,15 +1,18 @@
 package com.codecool.app.backend.service;
 
-import com.codecool.app.backend.model.User;
-import org.springframework.stereotype.Component;
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import com.codecool.app.backend.model.User;
+
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
+
 @Component
-public class UserStorage {
+@Profile("default")
+public class UserStorage implements UserService {
 
     private final Set<User> users;
 
