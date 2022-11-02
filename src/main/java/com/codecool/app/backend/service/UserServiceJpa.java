@@ -31,8 +31,11 @@ public class UserServiceJpa implements UserService {
 
     @Override
     public void addUser(User user) {
-        // TODO Auto-generated method stub
-
+        var oldUser = userRepository.findByName(user.getName());
+        if (oldUser.isPresent()) {
+            throw new UserAlreadyExistsException(user.getName());
+        }
+        userRepository.save(user);
     }
 
     @Override
