@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import api from "./api/api";
 
 const PubList = () => {
-  const [pubs, setPubs] = useState([]);
+  const [pubs, setPubs] = useState(undefined);
 
   useEffect(() => {
     const fetchPubs = async () => {
@@ -25,9 +25,11 @@ const PubList = () => {
     fetchPubs();
   }, []);
 
+  if (pubs === undefined) return "Loading...";
+
   return (
     <div>
-      {pubs.map((pub) => (
+      {pubs.length === 0 ? "No pubs yet, please add some!" : pubs.map((pub) => (
         <div key={pub.id}>
           <Link to={`/pubs/${pub.id}`}>
             {pub.name} {pub.openHours} {pub.rating} {pub.address}
