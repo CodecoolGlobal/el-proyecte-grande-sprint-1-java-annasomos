@@ -1,43 +1,38 @@
 package com.codecool.app.backend.model;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
+@Getter
+@Setter
+@Builder
+@Entity
 public class Pub {
-
+    @Id
     private UUID id;
     private String name;
-    private Map <String, BigDecimal> menu;
+    @OneToMany
+    private Set<Product> products;
+    private String address;
+    @ManyToMany
+    private Set<User> owner;
 
-    public Pub(String name, Map<String, BigDecimal> menu) {
+    public Pub( String name, Set<Product> products, String address, Set<User> owner) {
         this.id = UUID.randomUUID();
         this.name = name;
-        this.menu = menu;
+        this.products = products;
+        this.address = address;
+        this.owner = owner;
     }
 
     public Pub(){
         this.id = UUID.randomUUID();
     }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Map<String, BigDecimal> getMenu() {
-        return menu;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setMenu(Map<String, BigDecimal> menu) {
-        this.menu = menu;
-    }
-
 }
