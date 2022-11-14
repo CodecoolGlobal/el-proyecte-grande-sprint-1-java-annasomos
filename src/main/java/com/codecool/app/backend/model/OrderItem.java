@@ -1,18 +1,21 @@
 package com.codecool.app.backend.model;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import java.math.BigDecimal;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.math.BigDecimal;
-import java.util.UUID;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
 @Builder
 @Entity
+@AllArgsConstructor
 public class OrderItem {
     @Id
     private UUID id;

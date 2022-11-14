@@ -38,7 +38,7 @@ public class PubStorage {
     public void updatePub(UUID id, Pub updatedPub) {
         Pub pub = getPubById(id);
         pub.setName(updatedPub.getName());
-        pub.setMenu(updatedPub.getMenu());
+        pub.addProducts(updatedPub.getProducts());
     }
 
     //might get redundant

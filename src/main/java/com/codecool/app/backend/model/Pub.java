@@ -1,18 +1,23 @@
 package com.codecool.app.backend.model;
 
+import java.util.Collection;
+import java.util.Set;
+import java.util.UUID;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.math.BigDecimal;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
-
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
 @Entity
 public class Pub {
     @Id
@@ -24,7 +29,7 @@ public class Pub {
     @ManyToMany
     private Set<User> owner;
 
-    public Pub( String name, Set<Product> products, String address, Set<User> owner) {
+    public Pub(String name, Set<Product> products, String address, Set<User> owner) {
         this.id = UUID.randomUUID();
         this.name = name;
         this.products = products;
@@ -32,7 +37,11 @@ public class Pub {
         this.owner = owner;
     }
 
-    public Pub(){
+    public Pub() {
         this.id = UUID.randomUUID();
+    }
+
+    public void addProducts(Collection<Product> products) {
+        this.products.addAll(products);
     }
 }

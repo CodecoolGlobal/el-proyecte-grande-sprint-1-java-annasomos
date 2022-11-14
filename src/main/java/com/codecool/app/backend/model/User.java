@@ -1,5 +1,6 @@
 package com.codecool.app.backend.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +17,7 @@ import javax.persistence.OneToMany;
 @Setter
 @Builder
 @Entity
+@AllArgsConstructor
 public class User {
     @Id
     private UUID id;

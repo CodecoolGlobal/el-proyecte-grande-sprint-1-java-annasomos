@@ -22,7 +22,7 @@ public class UserStorage implements UserService {
 
     public Set<User> getUsersByName(String name) {
         return users.stream()
-                .filter(user -> user.getName().equals(name))
+                .filter(user -> user.getUserName().equals(name))
                 .collect(Collectors.toSet());
     }
 
@@ -47,7 +47,7 @@ public class UserStorage implements UserService {
     public void updateUser(UUID id, User updatedUser) {
         User user = getUserById(id);
         user.setEmail(updatedUser.getEmail());
-        user.setName(updatedUser.getName());
+        user.setUserName(updatedUser.getUserName());
     }
 
     public void addUser(User user) {
