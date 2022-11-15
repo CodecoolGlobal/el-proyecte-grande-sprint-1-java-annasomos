@@ -31,7 +31,7 @@ public class UserServiceJpa implements UserService {
 
     @Override
     public void addUser(User user) {
-        var oldUser = userRepository.findByName(user.getUserName());
+        var oldUser = userRepository.findByUserName(user.getUserName());
         if (oldUser.isPresent()) {
             throw new UserAlreadyExistsException(user.getUserName());
         }
