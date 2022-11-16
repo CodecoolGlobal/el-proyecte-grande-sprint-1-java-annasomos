@@ -1,5 +1,7 @@
 package com.codecool.app.backend.service;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -7,7 +9,9 @@ import com.codecool.app.backend.model.User;
 import com.codecool.app.backend.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceJpa implements UserService {
 
     private UserRepository userRepository;
@@ -40,8 +44,8 @@ public class UserServiceJpa implements UserService {
 
     @Override
     public Set<User> getUsers() {
-        // TODO Auto-generated method stub
-        return null;
+        List<User> allUsers=userRepository.findAll();
+        return new HashSet<>(allUsers);
     }
 
 }

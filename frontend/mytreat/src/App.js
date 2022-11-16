@@ -10,6 +10,7 @@ import Pub from "./Pub";
 import PubList from "./PubList";
 import { Routes, Route } from "react-router-dom";
 import LogOut from "./LogOut";
+import Layout from "./Layout";
 
 function App() {
   return (

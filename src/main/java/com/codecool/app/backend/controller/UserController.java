@@ -3,6 +3,7 @@ package com.codecool.app.backend.controller;
 import com.codecool.app.backend.model.User;
 import com.codecool.app.backend.service.UserAlreadyExistsException;
 import com.codecool.app.backend.service.UserService;
+import com.codecool.app.backend.service.UserServiceJpa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -14,16 +15,20 @@ import java.util.UUID;
 @RestController
 public class UserController {
 
-    private final UserService userService;
+    //private final UserService userService;
+
+    private final UserServiceJpa userServiceJpa;
 
     @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public UserController(UserServiceJpa userServiceJpa) {
+        //this.userService = userService;
+        this.userServiceJpa = userServiceJpa;
     }
 
     @GetMapping("users")
     public Set<User> getUsers() {
-        return userService.getUsers();
+        System.out.println(userServiceJpa.getUsers());
+        return userServiceJpa.getUsers();
     }
 
     @ExceptionHandler(UserAlreadyExistsException.class)
@@ -33,10 +38,10 @@ public class UserController {
 
     @PostMapping(value = "users/new")
     public void addUser(@RequestBody User user) {
-        userService.addUser(user);
+        userServiceJpa.addUser(user);
     }
 
-    @PutMapping(value = "updateuser/{id}")
+     /*@PutMapping(value = "updateuser/{id}")
     public void updateUser(@PathVariable UUID id, @RequestBody User user) {
         userService.updateUser(id, user);
     }
@@ -44,6 +49,6 @@ public class UserController {
     @DeleteMapping(value = "delete/{id}")
     public void deleteUser(@PathVariable UUID id) {
         userService.deleteUser(id);
-    }
+    } */
 
 }
