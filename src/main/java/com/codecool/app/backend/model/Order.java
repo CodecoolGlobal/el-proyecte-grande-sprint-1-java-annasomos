@@ -18,6 +18,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @Entity
+@Table (name = "orderBy")
 public class Order {
 
     @Id

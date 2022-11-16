@@ -4,7 +4,9 @@ import java.util.Set;
 import java.util.UUID;
 
 import com.codecool.app.backend.model.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface UserService {
 
     void deleteUser(UUID id);

@@ -1,5 +1,6 @@
 package com.codecool.app.backend.model;
 
+import ch.qos.logback.classic.db.names.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -8,15 +9,13 @@ import lombok.Setter;
 import java.util.Set;
 import java.util.UUID;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @Builder
 @Entity
+@Table (name = "appUser")
 @AllArgsConstructor
 public class User {
     @Id
