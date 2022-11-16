@@ -1,4 +1,4 @@
-package com.codecool.app.backend.service;
+package com.codecool.app.backend.storage;
 
 import com.codecool.app.backend.model.Pub;
 import com.codecool.app.backend.model.User;

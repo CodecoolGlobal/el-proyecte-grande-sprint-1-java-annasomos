@@ -1,10 +1,11 @@
-package com.codecool.app.backend.service;
+package com.codecool.app.backend.storage;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import com.codecool.app.backend.dao.UserDao;
 import com.codecool.app.backend.model.User;
 
 import org.springframework.context.annotation.Profile;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Profile("default")
-public class UserStorage implements UserService {
+public class UserStorage implements UserDao {
 
     private final Set<User> users;
 

@@ -1,18 +1,29 @@
 package com.codecool.app.backend.controller;
 
 import com.codecool.app.backend.model.Pub;
-import com.codecool.app.backend.model.User;
-import com.codecool.app.backend.service.PubStorage;
+import com.codecool.app.backend.service.PubService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
 import java.util.Set;
-import java.util.UUID;
 
 @RestController
 public class PubController {
+
+    private final PubService pubService;
+
+    @Autowired
+    public PubController(PubService pubService) {
+        this.pubService = pubService;
+    }
+
+
+    @GetMapping("pubs")
+    public Set<Pub> getPubs(){
+        return pubService.getPubs();
+    }
+
+    /*
 
     private final PubStorage pubStorage;
 
@@ -46,5 +57,8 @@ public class PubController {
     public void deletePub(@PathVariable UUID id) {
         pubStorage.deletePub(id);
     }
+
+
+     */
 
 }

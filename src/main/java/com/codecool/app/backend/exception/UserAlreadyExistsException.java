@@ -1,4 +1,4 @@
-package com.codecool.app.backend.service;
+package com.codecool.app.backend.exception;
 
 public class UserAlreadyExistsException extends RuntimeException {
 

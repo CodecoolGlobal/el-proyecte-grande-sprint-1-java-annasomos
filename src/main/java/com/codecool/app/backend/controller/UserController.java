@@ -1,26 +1,23 @@
 package com.codecool.app.backend.controller;
 
 import com.codecool.app.backend.model.User;
-import com.codecool.app.backend.service.UserAlreadyExistsException;
+import com.codecool.app.backend.exception.UserAlreadyExistsException;
 import com.codecool.app.backend.service.UserService;
-import com.codecool.app.backend.service.UserServiceJpa;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
-import java.util.UUID;
 
 @RestController
 public class UserController {
 
     //private final UserService userService;
 
-    private final UserServiceJpa userServiceJpa;
+    private final UserService userServiceJpa;
 
     @Autowired
-    public UserController(UserServiceJpa userServiceJpa) {
+    public UserController(UserService userServiceJpa) {
         //this.userService = userService;
         this.userServiceJpa = userServiceJpa;
     }
