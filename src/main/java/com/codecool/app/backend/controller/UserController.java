@@ -11,32 +11,29 @@ import java.util.Set;
 
 @RestController
 public class UserController {
-
-    //private final UserService userService;
-
-    private final UserService userServiceJpa;
+    private final UserService userService;
 
     @Autowired
-    public UserController(UserService userServiceJpa) {
-        //this.userService = userService;
-        this.userServiceJpa = userServiceJpa;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping("users")
     public Set<User> getUsers() {
-        System.out.println(userServiceJpa.getUsers());
-        return userServiceJpa.getUsers();
+        return userService.getUsers();
     }
+
+    @PostMapping(value = "user/new")
+    public void addUser(@RequestBody User user) {
+        userService.addUser(user);
+    }
+
 
     @ExceptionHandler(UserAlreadyExistsException.class)
     public ResponseEntity<String> userAlreadyExists(UserAlreadyExistsException e) {
         return ResponseEntity.badRequest().body(e.getMessage());
     }
 
-    @PostMapping(value = "users/new")
-    public void addUser(@RequestBody User user) {
-        userServiceJpa.addUser(user);
-    }
 
      /*@PutMapping(value = "updateuser/{id}")
     public void updateUser(@PathVariable UUID id, @RequestBody User user) {

@@ -17,10 +17,14 @@ public class PubController {
         this.pubService = pubService;
     }
 
-
     @GetMapping("pubs")
     public Set<Pub> getPubs(){
         return pubService.getPubs();
+    }
+
+    @PostMapping("pub/new")
+    public void addPub(@RequestBody Pub pub) {
+        pubService.addPub(pub);
     }
 
     /*
