@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import api from "./api/api";
+import Default_pfp from "./data/images/Default_pfp_rgb.png";
 
 const PubList = () => {
   const [pubs, setPubs] = useState(undefined);
@@ -28,16 +29,30 @@ const PubList = () => {
   if (pubs === undefined) return "Loading...";
 
   return (
-    <div>
-      {pubs.length === 0 ? "No pubs yet, please add some!" : pubs.map((pub) => (
-        <div key={pub.id}>
-          <Link to={`/pubs/${pub.id}`}>
-            {pub.name} {pub.openHours} {pub.rating} {pub.address}
-          </Link>
-        </div>
-      ))}
-    </div>
-  );
-};
+      <div className="grid">
+        {pubs.map(pub =>
+            <div className="col-md-4 animated fadeIn" key={pub.id}>
+              <div className="card">
+                <div className="card-body">
+                  <div className="avatar">
+                    <img
+                        src={Default_pfp}
+                        className="card-img-top"
+                        alt="img"
+                    />
+                  </div>
+                  <h5 className="card-title">
+                    {(pub.name)}
+                  </h5>
+                  <p className="card-text">
+                    {pub.address}
+                  </p>
+                </div>
+              </div>
+            </div>
+        )}
+      </div>
+  )
+}
 
 export default PubList;
