@@ -24,6 +24,7 @@ public class PubController {
 
     @PostMapping("pub/new")
     public void addPub(@RequestBody Pub pub) {
+        System.out.println(pub.getName());
         pubService.addPub(pub);
     }
 
