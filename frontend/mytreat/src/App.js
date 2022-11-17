@@ -11,6 +11,7 @@ import PubList from "./PubList";
 import { Routes, Route } from "react-router-dom";
 import LogOut from "./LogOut";
 import Layout from "./Layout";
+import AddPub from "./AddPub";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/users/:userId" element={<User />} />
           <Route path="/pubs" element={<PubList />} />
           <Route path="/pubs/:pubId" element={<Pub />} />
+          <Route path="/new-pub" element={<AddPub />} />
         </Route>
         <Route path="/login" element={<LogIn />} />
         <Route path="/registration" element={<Registration />} />
