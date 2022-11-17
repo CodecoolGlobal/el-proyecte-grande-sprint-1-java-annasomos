@@ -8,6 +8,7 @@ const LogIn = () => {
   const [users, setUsers] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [hasUser, setHasUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,10 +34,12 @@ const LogIn = () => {
     e.preventDefault();
     users.map((user) => {
       if (user.email === email && user.password === password) {
+        setHasUser(true);
         setEmail("");
         setPassword("");
-        localStorage.setItem("currentUser", JSON.stringify(user));
         navigate("/");
+      }else{
+        setHasUser(false);
       }
     });
   };
@@ -63,6 +66,10 @@ const LogIn = () => {
         />
         <button type="submit">Submit</button>
       </form>
+      {hasUser === false ?
+        <p style={{color: "red"}}>Wrong email or password.</p>
+          :
+          ""}
     </>
   );
 };
