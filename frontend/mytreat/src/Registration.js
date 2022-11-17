@@ -6,9 +6,11 @@ import { useEffect } from "react";
 
 const Registration = () => {
   const [users, setUsers] = useState([]);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,21 +34,23 @@ const Registration = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const id = users.length ? users[users.length - 1].id + 1 : 1;
+    //const id = users.length ? users[users.length - 1].id + 1 : 1;
     const newUser = {
-      id,
-      name: name,
-      email: email,
+      firstName: firstName,
+      lastName: lastName,
+      userName: userName,
       password: password,
+      email: email
     };
     try {
-      const response = await api.post("/users", newUser);
+      const response = await api.post("/user/new", newUser);
       const allUsers = [...users, response.data];
       setUsers(allUsers);
-      setName("");
-      setEmail("");
+      setFirstName("");
+      setLastName("");
+      setUserName("");
       setPassword("");
-      localStorage.setItem("currentUser", JSON.stringify(response.data));
+      setEmail("");
       navigate("/");
     } catch (err) {
       console.log(`Error: ${err.message}`);
@@ -56,13 +60,37 @@ const Registration = () => {
     <>
       <h2>Add new user</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="firstName">Firstname:</label>
         <input
-          id="name"
+          id="firstName"
           type="text"
           required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <label htmlFor="lastName">Lastname:</label>
+        <input
+            id="lastName"
+            type="text"
+            required
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+        />
+        <label htmlFor="userName">Username:</label>
+        <input
+            id="userName"
+            type="text"
+            required
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+        />
+        <label htmlFor="password">Password:</label>
+        <input
+            id="password"
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
         />
         <label htmlFor="email">Email:</label>
         <input
@@ -71,14 +99,6 @@ const Registration = () => {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          id="password"
-          type="password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Submit</button>
       </form>
