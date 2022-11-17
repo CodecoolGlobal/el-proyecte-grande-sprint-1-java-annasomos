@@ -11,6 +11,7 @@ const Registration = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [hasUser, setHasUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,8 +52,10 @@ const Registration = () => {
       setUserName("");
       setPassword("");
       setEmail("");
+      setHasUser(false);
       navigate("/");
     } catch (err) {
+      setHasUser(true);
       console.log(`Error: ${err.message}`);
     }
   };
@@ -84,6 +87,14 @@ const Registration = () => {
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
         />
+        <label htmlFor="email">Email:</label>
+        <input
+            id="email"
+            type="text"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+        />
         <label htmlFor="password">Password:</label>
         <input
             id="password"
@@ -92,16 +103,13 @@ const Registration = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
         />
-        <label htmlFor="email">Email:</label>
-        <input
-          id="email"
-          type="text"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
         <button type="submit">Submit</button>
       </form>
+      {hasUser ?
+          <p style={{color: "red"}}>User already exists.</p>
+          :
+          ""
+      }
     </>
   );
 };
