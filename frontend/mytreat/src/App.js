@@ -5,7 +5,7 @@ import User from "./User";
 import LogIn from "./LogIn";
 import Registration from "./Registration";
 import AddFriend from "./AddFriend";
-import UserList from "./UserList";
+import FriendsList from "./FriendsList";
 import Pub from "./Pub";
 import PubList from "./PubList";
 import { Routes, Route } from "react-router-dom";
@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/my-friends" element={<UserList />} />
+          <Route path="/my-friends" element={<FriendsList />} />
           <Route path="/users/:userId" element={<User />} />
           <Route path="/pubs" element={<PubList />} />
           <Route path="/pubs/:pubId" element={<Pub />} />
