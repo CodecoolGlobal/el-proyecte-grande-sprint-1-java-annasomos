@@ -30,7 +30,7 @@ public class UserController {
 
     @PostMapping(value = "user/add-friend")
     public void addFriend(@RequestBody User user) {
-        userService.addFriend(user);
+        //userService.addFriend(user);
     }
 
     @ExceptionHandler(UserAlreadyExistsException.class)
