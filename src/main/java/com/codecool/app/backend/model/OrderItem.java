@@ -4,35 +4,25 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Builder
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 public class OrderItem {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String itemName;
     private BigDecimal itemPrice;
     private int count;
     private BigDecimal totalPrice;
 
-    public OrderItem(String itemName, BigDecimal itemPrice, int count, BigDecimal totalPrice) {
-        this.id = UUID.randomUUID();
-        this.itemName = itemName;
-        this.itemPrice = itemPrice;
-        this.count = count;
-        this.totalPrice = totalPrice;
     }
-
-    public OrderItem(){
-        this.id = UUID.randomUUID();
-    }
-}

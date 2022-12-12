@@ -1,11 +1,8 @@
 package com.codecool.app.backend.configuration;
 
 import com.codecool.app.backend.repositories.UserRepository;
-import com.codecool.app.backend.dao.UserDao;
-import com.codecool.app.backend.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
@@ -19,8 +16,10 @@ public class JpaConfiguration {
         this.userRepository = userRepository;
     }
 
+    /*
     @Bean
     public UserDao getJpaUserService() {
         return new UserService(userRepository);
     }
+    */
 }
