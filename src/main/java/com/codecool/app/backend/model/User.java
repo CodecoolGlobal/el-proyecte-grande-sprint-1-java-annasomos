@@ -1,10 +1,7 @@
 package com.codecool.app.backend.model;
 
 import ch.qos.logback.classic.db.names.TableName;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Set;
 import java.util.UUID;
@@ -17,8 +14,10 @@ import javax.persistence.*;
 @Entity
 @Table (name = "appUser")
 @AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String firstName;
     private String lastName;
@@ -33,20 +32,6 @@ public class User {
     private Set<Order> pastOrders;
     private boolean isOwner;
 
-    public User(String firstName, String lastName, String userName, String password, Set<User> friends, Set<Pub> likedPubs, String email, Set<Order> pastOrders, boolean isOwner) {
-        this.id = UUID.randomUUID();
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
-        this.password = password;
-        this.friends = friends;
-        this.likedPubs = likedPubs;
-        this.email = email;
-        this.pastOrders = pastOrders;
-        this.isOwner = isOwner;
-    }
 
-    public User(){
-        this.id = UUID.randomUUID();
-    }
+
 }

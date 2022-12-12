@@ -28,21 +28,15 @@ public class UserController {
         userService.addUser(user);
     }
 
+    @PostMapping(value = "user/add-friend")
+    public void addFriend(@RequestBody User user) {
+        userService.addFriend(user);
+    }
 
     @ExceptionHandler(UserAlreadyExistsException.class)
     public ResponseEntity<String> userAlreadyExists(UserAlreadyExistsException e) {
         return ResponseEntity.badRequest().body(e.getMessage());
     }
 
-
-     /*@PutMapping(value = "updateuser/{id}")
-    public void updateUser(@PathVariable UUID id, @RequestBody User user) {
-        userService.updateUser(id, user);
-    }
-
-    @DeleteMapping(value = "delete/{id}")
-    public void deleteUser(@PathVariable UUID id) {
-        userService.deleteUser(id);
-    } */
 
 }
