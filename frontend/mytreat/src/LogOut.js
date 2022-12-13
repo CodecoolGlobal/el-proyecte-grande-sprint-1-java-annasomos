@@ -6,12 +6,12 @@ const LogOut = () => {
 
   useEffect(() => {
     const logOut = () => {
-      localStorage.setItem("currentUser", null);
+      localStorage.removeItem("currentUser");
       navigate("/");
     };
     logOut();
   }, []);
-  return;
+
 };
 
 export default LogOut;
