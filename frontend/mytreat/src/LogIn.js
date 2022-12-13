@@ -37,6 +37,8 @@ const LogIn = () => {
         setHasUser(true);
         setEmail("");
         setPassword("");
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        //sessionStorage.setItem('currentUser', JSON.stringify(user))
         navigate("/");
       }else{
         setHasUser(false);
