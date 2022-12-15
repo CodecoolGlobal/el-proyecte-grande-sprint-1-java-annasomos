@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
+import java.util.UUID;
 
 @RestController
 public class UserController {
@@ -28,9 +29,16 @@ public class UserController {
         userService.addUser(user);
     }
 
-    @PostMapping(value = "user/add-friend")
-    public void addFriend(@RequestBody User user) {
-        //userService.addFriend(user);
+    @PostMapping("user/add-friend")
+    public void addFriend(@RequestParam(name = "id") UUID userId,
+                          @RequestParam(name = "friends_id") UUID friendsId){
+        userService.addFriends(userId, friendsId);
+    }
+
+
+    @GetMapping("user/get-my-friends")
+    public void getFriends(@RequestParam(name = "app_user_friends.user_id") UUID userId) {
+        userService.getFriends(userId);
     }
 
     @ExceptionHandler(UserAlreadyExistsException.class)

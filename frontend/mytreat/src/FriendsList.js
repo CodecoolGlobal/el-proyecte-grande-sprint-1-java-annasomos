@@ -9,15 +9,9 @@ const FriendsList = () => {
   let [allUsers, setAllUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [search, setSearch] = useState('');
-  const [optionList, setOptionList] = useState([]);
-  const [selectedOption, setSelectedOption] = useState(null);
-  /*
-  const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
-  ];
-  */
+  const [selectedFriends, setSelectedFriends] = useState([]);
+  const [selectedOption, setSelectedOption] = useState([]);
+
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
@@ -30,7 +24,7 @@ const FriendsList = () => {
         allUsers.map((user) => {
           if (allUsers.length > options.length) {
             options.push({
-              value: user.userName,
+              value: user,
               label: user.userName
             })
           }
@@ -47,10 +41,6 @@ const FriendsList = () => {
       }
     };
     fetchUsers();
-
-
-
-
   }, []);
 
 
@@ -66,20 +56,48 @@ const FriendsList = () => {
     }
   }, [search]);
 
-  function handleSelect() {
-    //setSelectedOptions(data);
-    console.log("Handle select")
+
+  const handleChange = (event) => {
+    let friendsList = [];
+    event.map((friend) => {
+      friendsList.push(friend.value)
+    })
+    setSelectedFriends(friendsList);
   }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const friendId = selectedFriends[0].id;
+    const currentUserId = JSON.parse(localStorage.getItem("currentUser")).id;
+
+    try {
+      const response = await api.post(
+          "user/add-friend?id=" + currentUserId + "&friends_id=" + friendId);
+      console.log(response.data)
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+
+
+
+  }
+
+
   return (
       <>
           <div className="dropdown-container">
-            <Select
-                defaultValue={selectedOption}
-                onChange={setSelectedOption}
-                options={options}
-            />
+            <form onSubmit={handleSubmit}>
+              <Select
+                  className="select-friends"
+                  onChange={handleChange}
+                  options={options}
+                  isMulti
+              />
+              <button type="submit">Submit</button>
+            </form>
           </div>
-        <form className="searchForm" onSubmit={(e) => e.preventDefault()}>
+{/*        <form className="searchForm" onSubmit={(e) => e.preventDefault()}>
           <label htmlFor="search">Search users</label>
           <input
               id="search"
@@ -88,7 +106,7 @@ const FriendsList = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
           />
-        </form>
+        </form>*/}
         <div className="grid">
           {filteredUsers.map(user =>
               <div className="col-md-4 animated fadeIn" key={user.id}>

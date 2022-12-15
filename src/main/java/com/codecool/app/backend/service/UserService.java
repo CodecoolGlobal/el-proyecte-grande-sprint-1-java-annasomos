@@ -1,8 +1,6 @@
 package com.codecool.app.backend.service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import com.codecool.app.backend.exception.UserAlreadyExistsException;
 import com.codecool.app.backend.model.User;
@@ -29,6 +27,19 @@ public class UserService {
         }
         userRepository.save(user);
     }
+
+    public void addFriends(UUID userId, UUID friendsId) {
+        userRepository.saveFriends(userId, friendsId);
+    }
+
+    public void getFriends(UUID userId) {
+        userRepository.getFriends(userId);
+    }
+
+    public Optional<User> getUserById(UUID id) {
+        return userRepository.findById(id);
+    }
+
 
     public Set<User> getUsers() {
         List<User> allUsers=userRepository.findAll();

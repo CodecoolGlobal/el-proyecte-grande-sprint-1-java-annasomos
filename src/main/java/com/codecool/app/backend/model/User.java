@@ -32,6 +32,19 @@ public class User {
     private Set<Order> pastOrders;
     private boolean isOwner;
 
-
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", friends=" + friends +
+                ", likedPubs=" + likedPubs +
+                ", email='" + email + '\'' +
+                ", pastOrders=" + pastOrders +
+                ", isOwner=" + isOwner +
+                '}';
+    }
 }
