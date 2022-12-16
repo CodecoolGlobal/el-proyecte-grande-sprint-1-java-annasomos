@@ -1,6 +1,7 @@
 package com.codecool.app.backend.model;
 
 import ch.qos.logback.classic.db.names.TableName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.Set;
@@ -24,6 +25,7 @@ public class User {
     private String userName;
     private String password;
     @ManyToMany
+    @JsonIgnore
     private Set<User> friends;
     @ManyToMany
     private Set<Pub> likedPubs;
@@ -31,7 +33,4 @@ public class User {
     @OneToMany
     private Set<Order> pastOrders;
     private boolean isOwner;
-
-
-
 }
