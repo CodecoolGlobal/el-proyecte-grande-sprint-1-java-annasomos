@@ -36,9 +36,13 @@ public class UserController {
     }
 
 
-    @GetMapping("user/get-my-friends")
-    public void getFriends(@RequestParam(name = "app_user_friends.user_id") UUID userId) {
-        userService.getFriends(userId);
+    @GetMapping("user/get-my-friends-by-user-id")
+    public Set<User> getFriendsByUserId(@RequestParam(name = "user_id") UUID userId) {
+        return userService.getFriendsByUserId(userId);
+    }
+    @GetMapping("user/get-my-friends-by-friends-id")
+    public void getFriendsByFriendsId(@RequestParam(name = "app_user_friends.friends_id") UUID friendsId) {
+        userService.getFriendsByFriendsId(friendsId);
     }
 
     @ExceptionHandler(UserAlreadyExistsException.class)

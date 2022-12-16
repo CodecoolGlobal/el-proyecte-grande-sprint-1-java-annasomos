@@ -30,10 +30,14 @@ public class UserService {
 
     public void addFriends(UUID userId, UUID friendsId) {
         userRepository.saveFriends(userId, friendsId);
+        userRepository.saveFriends(friendsId, userId);
     }
 
-    public void getFriends(UUID userId) {
-        userRepository.getFriends(userId);
+    public Set<User> getFriendsByUserId(UUID userId) {
+        return userRepository.getFriendsByUserId(userId);
+    }
+    public void getFriendsByFriendsId(UUID friendsId) {
+        userRepository.getFriendsByFriendsId(friendsId);
     }
 
     public Optional<User> getUserById(UUID id) {
